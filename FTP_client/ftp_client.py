@@ -15,11 +15,11 @@ class ClientHandler():
 
         self.opt.add_option("-s", "--server", dest="server")
         self.opt.add_option("-P", "--port", dest="port")
-        self.opt.add_option("-u", "--user", dest="user")
+        self.opt.add_option("-u", "--username", dest="username")
         self.opt.add_option("-p", "--password", dest="password")
 
         self.options, self.args = self.opt.parse_args()
-        self.verify_args(options, args)
+        self.verify_args(self.options, self.args)
         self.make_connection()
 
     def response(self):
@@ -29,7 +29,7 @@ class ClientHandler():
 
     def verify_args(self, options, args):
         server=options.server
-        port=optioins.port
+        port=int(options.port)
         username=options.username
         password=options.password
         if int(port)>0 and int(port)<65536:
