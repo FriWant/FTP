@@ -1,6 +1,6 @@
 import socket
 import optparse
-
+import json
 STATUS_CODE = {
     200: "Authentication passed",
     400: "Authentication failed"
